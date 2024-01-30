@@ -11,14 +11,28 @@
 		38CC90A52B6822230005D10E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC90A42B6822230005D10E /* ContentView.swift */; };
 		38CC90A72B6822260005D10E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38CC90A62B6822260005D10E /* Assets.xcassets */; };
 		38CC90AA2B6822260005D10E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38CC90A92B6822260005D10E /* Preview Assets.xcassets */; };
+		38CC90B12B6823220005D10E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC90B02B6823220005D10E /* Person.swift */; };
+		38CC90B32B6826570005D10E /* EditPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC90B22B6826570005D10E /* EditPersonView.swift */; };
+		38CC90B52B6853790005D10E /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC90B42B6853790005D10E /* PeopleView.swift */; };
+		38CC90B72B693B0F0005D10E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC90B62B693B0F0005D10E /* Event.swift */; };
+		38CC90B92B6951B30005D10E /* EditEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC90B82B6951B20005D10E /* EditEventView.swift */; };
+		38CC90BB2B6959390005D10E /* Previewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC90BA2B6959390005D10E /* Previewer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		380504EA2B6967A600C3E8DE /* CHCheckIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CHCheckIn.entitlements; sourceTree = "<group>"; };
+		380504EB2B69682D00C3E8DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		38CC909F2B6822230005D10E /* CHCheckIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHCheckIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CC90A22B6822230005D10E /* CHCheckInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHCheckInApp.swift; sourceTree = "<group>"; };
 		38CC90A42B6822230005D10E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		38CC90A62B6822260005D10E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38CC90A92B6822260005D10E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		38CC90B02B6823220005D10E /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		38CC90B22B6826570005D10E /* EditPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonView.swift; sourceTree = "<group>"; };
+		38CC90B42B6853790005D10E /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
+		38CC90B62B693B0F0005D10E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		38CC90B82B6951B20005D10E /* EditEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventView.swift; sourceTree = "<group>"; };
+		38CC90BA2B6959390005D10E /* Previewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previewer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +65,16 @@
 		38CC90A12B6822230005D10E /* CHCheckIn */ = {
 			isa = PBXGroup;
 			children = (
+				380504EB2B69682D00C3E8DE /* Info.plist */,
+				380504EA2B6967A600C3E8DE /* CHCheckIn.entitlements */,
 				38CC90A22B6822230005D10E /* CHCheckInApp.swift */,
 				38CC90A42B6822230005D10E /* ContentView.swift */,
+				38CC90B62B693B0F0005D10E /* Event.swift */,
+				38CC90B42B6853790005D10E /* PeopleView.swift */,
+				38CC90B22B6826570005D10E /* EditPersonView.swift */,
+				38CC90B02B6823220005D10E /* Person.swift */,
+				38CC90B82B6951B20005D10E /* EditEventView.swift */,
+				38CC90BA2B6959390005D10E /* Previewer.swift */,
 				38CC90A62B6822260005D10E /* Assets.xcassets */,
 				38CC90A82B6822260005D10E /* Preview Content */,
 			);
@@ -137,8 +159,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38CC90B12B6823220005D10E /* Person.swift in Sources */,
+				38CC90B52B6853790005D10E /* PeopleView.swift in Sources */,
 				38CC90A52B6822230005D10E /* ContentView.swift in Sources */,
+				38CC90BB2B6959390005D10E /* Previewer.swift in Sources */,
 				38CC90A32B6822230005D10E /* CHCheckInApp.swift in Sources */,
+				38CC90B72B693B0F0005D10E /* Event.swift in Sources */,
+				38CC90B32B6826570005D10E /* EditPersonView.swift in Sources */,
+				38CC90B92B6951B30005D10E /* EditEventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,24 +297,31 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CHCheckIn/CHCheckIn.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CHCheckIn/Preview Content\"";
-				DEVELOPMENT_TEAM = 695JVU9K87;
+				DEVELOPMENT_TEAM = S5292WSW2A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CHCheckIn/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Serenis.CHCheckIn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Serenis.CHCheckInApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -298,24 +333,31 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CHCheckIn/CHCheckIn.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CHCheckIn/Preview Content\"";
-				DEVELOPMENT_TEAM = 695JVU9K87;
+				DEVELOPMENT_TEAM = S5292WSW2A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CHCheckIn/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Serenis.CHCheckIn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Serenis.CHCheckInApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

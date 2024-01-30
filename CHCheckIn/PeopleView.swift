@@ -14,8 +14,10 @@ struct PeopleView: View {
     var body: some View {
         List {
             ForEach(people) { person in
-                NavigationLink(value: person) {
-                    Text(person.name)
+                if !person.name.isEmpty {
+                    NavigationLink(value: person) {
+                        Text(person.name)
+                    }
                 }
             }
             .onDelete(perform: deletePeople)

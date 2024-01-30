@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		389F195D2B699B1A00FEF114 /* AccessCameraView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F195C2B699B1A00FEF114 /* AccessCameraView .swift */; };
 		38CC90A32B6822230005D10E /* CHCheckInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC90A22B6822230005D10E /* CHCheckInApp.swift */; };
 		38CC90A52B6822230005D10E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC90A42B6822230005D10E /* ContentView.swift */; };
 		38CC90A72B6822260005D10E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38CC90A62B6822260005D10E /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		380504EA2B6967A600C3E8DE /* CHCheckIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CHCheckIn.entitlements; sourceTree = "<group>"; };
 		380504EB2B69682D00C3E8DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		389F195C2B699B1A00FEF114 /* AccessCameraView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccessCameraView .swift"; sourceTree = "<group>"; };
 		38CC909F2B6822230005D10E /* CHCheckIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHCheckIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CC90A22B6822230005D10E /* CHCheckInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHCheckInApp.swift; sourceTree = "<group>"; };
 		38CC90A42B6822230005D10E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				38CC90BA2B6959390005D10E /* Previewer.swift */,
 				38CC90A62B6822260005D10E /* Assets.xcassets */,
 				38CC90A82B6822260005D10E /* Preview Content */,
+				389F195C2B699B1A00FEF114 /* AccessCameraView .swift */,
 			);
 			path = CHCheckIn;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				38CC90B72B693B0F0005D10E /* Event.swift in Sources */,
 				38CC90B32B6826570005D10E /* EditPersonView.swift in Sources */,
 				38CC90B92B6951B30005D10E /* EditEventView.swift in Sources */,
+				389F195D2B699B1A00FEF114 /* AccessCameraView .swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,12 +8,18 @@
 import PhotosUI
 import SwiftData
 import SwiftUI
+import PhotosUI
 
 struct EditPersonView: View {
     @Environment(\.modelContext) var modelContext
     @Bindable var person: Person
     @Binding var navigationPath: NavigationPath
     @State private var selectedItem: PhotosPickerItem?
+
+
+    @State private var showCamera = false
+    @State private var selectedImage: UIImage?
+    @State var image: UIImage?
 
     @Query(sort: [
         SortDescriptor(\Event.name),
@@ -29,8 +35,11 @@ struct EditPersonView: View {
                         .scaledToFit()
                 }
 
-                PhotosPicker(selection: $selectedItem, matching: .images) {
-                    Label("Select a photo", systemImage: "person")
+                Button("Open camera") {
+                    self.showCamera.toggle()
+                }
+                .fullScreenCover(isPresented: self.$showCamera) {
+                    AccessCameraView(selectedImage: self.$selectedImage)
                 }
             }
             Section {
@@ -70,7 +79,7 @@ struct EditPersonView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(for: Event.self) { event in
             EditEventView(event: event)
-        }.onChange(of: selectedItem, loadPhoto)
+        }.onChange(of: selectedImage, loadPhoto)
 
     }
 
@@ -83,7 +92,11 @@ struct EditPersonView: View {
 
     func loadPhoto() {
         Task { @MainActor in
-            person.photo = try await selectedItem?.loadTransferable(type: Data.self)
+            if let image = selectedImage {
+                person.photo = image.jpegData(compressionQuality: 1.0) // or use pngData() if you prefer
+
+                //                person.photo = try await selectedImage?.loadTransferable(type: Data.self)
+            }
         }
     }
 }

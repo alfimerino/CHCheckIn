@@ -11,10 +11,12 @@ import SwiftUI
 import PhotosUI
 
 struct EditPersonView: View {
+    @Environment(\.viewOrigin) var viewOrigin
     @Environment(\.modelContext) var modelContext
     @Bindable var person: Person
     @Binding var navigationPath: NavigationPath
     @State private var selectedItem: PhotosPickerItem?
+    var admin: Bool
 
 
     @State private var showCamera = false
@@ -30,12 +32,16 @@ struct EditPersonView: View {
         Form {
             Section {
                 if let imageData = person.photo, let uiImage = UIImage(data: imageData) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFit()
+                    if admin {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                    } else {
+                        Text("\(Image(systemName: "checkmark")) Photo ID Submitted")
+                    }
                 }
 
-                Button("Open camera") {
+                Button("\(Image(systemName: "camera")) Capture ID Card") {
                     self.showCamera.toggle()
                 }
                 .fullScreenCover(isPresented: self.$showCamera) {
@@ -79,8 +85,13 @@ struct EditPersonView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(for: Event.self) { event in
             EditEventView(event: event)
-        }.onChange(of: selectedImage, loadPhoto)
-
+        }
+        .onChange(of: selectedImage, loadPhoto)
+        .onDisappear {
+            if person.name.isEmpty {
+                modelContext.delete(person)
+            }
+        }
     }
 
     func addEvent() {
@@ -93,9 +104,7 @@ struct EditPersonView: View {
     func loadPhoto() {
         Task { @MainActor in
             if let image = selectedImage {
-                person.photo = image.jpegData(compressionQuality: 1.0) // or use pngData() if you prefer
-
-                //                person.photo = try await selectedImage?.loadTransferable(type: Data.self)
+                person.photo = image.jpegData(compressionQuality: 1.0)
             }
         }
     }
@@ -104,7 +113,7 @@ struct EditPersonView: View {
 #Preview {
     do {
         let previewer = try Previewer()
-        return EditPersonView(person: previewer.person, navigationPath: .constant(NavigationPath())).modelContainer(previewer.container)
+        return EditPersonView(person: previewer.person, navigationPath: .constant(NavigationPath()), admin: true).modelContainer(previewer.container)
     } catch {
         return Text("Failed to create preview: \(error.localizedDescription)")
     }

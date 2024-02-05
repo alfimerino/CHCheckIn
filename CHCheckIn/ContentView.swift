@@ -13,14 +13,25 @@ struct ContentView: View {
     @State private var path = NavigationPath()
     @State private var sortOrder = [SortDescriptor(\Person.name)]
     @State private var searchText = ""
+    @State private var adminOn = false
+    @State private var presentCheckIn = false
+    @State private var presentVerificationView = false
 
     var body: some View {
         NavigationStack(path: $path) {
             PeopleView(searchString: searchText, sortOrder: sortOrder)
-                .navigationTitle("Client Checkin")
+                .navigationTitle("Visitor View")
                 .navigationDestination(for: Person.self) { person in
-                    EditPersonView(person: person, navigationPath: $path)
+                    EditPersonView(person: person, navigationPath: $path, admin: false)
+                        .environment(\.viewOrigin, .view1)
                 }
+                .navigationDestination(isPresented: $presentCheckIn,destination: {
+                    CheckInView(navigationPath: $path)
+                })
+                .navigationDestination(isPresented: $presentVerificationView, destination: {
+                    VerificationView()
+                })
+
                 .toolbar {
                     Menu("Sort", systemImage: "arrow.up.arrow.down") {
                         Picker("Sort", selection: $sortOrder) {
@@ -32,6 +43,13 @@ struct ContentView: View {
                         }
                     }
                     Button("Add Person", systemImage: "plus", action: addPerson)
+                    Button("Visitor Check-In", systemImage: "person") {
+                        presentCheckIn.toggle()
+                    }
+
+                    Button("Visitor Check-In", systemImage: "gearshape.fill") {
+                        presentVerificationView.toggle()
+                    }
                 }
                 .searchable(text: $searchText)
         }
@@ -42,8 +60,6 @@ struct ContentView: View {
         modelContext.insert(person)
         path.append(person)
     }
-
-
 }
 
 #Preview {

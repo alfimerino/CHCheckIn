@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		389F195D2B699B1A00FEF114 /* AccessCameraView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F195C2B699B1A00FEF114 /* AccessCameraView .swift */; };
+		389F195F2B6A9B0500FEF114 /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F195E2B6A9B0500FEF114 /* VerificationViewModel.swift */; };
+		389F19612B6A9D1900FEF114 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F19602B6A9D1900FEF114 /* VerificationView.swift */; };
+		389F19632B6ADDDC00FEF114 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F19622B6ADDDC00FEF114 /* CheckInView.swift */; };
 		38CC90A32B6822230005D10E /* CHCheckInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC90A22B6822230005D10E /* CHCheckInApp.swift */; };
 		38CC90A52B6822230005D10E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC90A42B6822230005D10E /* ContentView.swift */; };
 		38CC90A72B6822260005D10E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38CC90A62B6822260005D10E /* Assets.xcassets */; };
@@ -24,6 +27,9 @@
 		380504EA2B6967A600C3E8DE /* CHCheckIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CHCheckIn.entitlements; sourceTree = "<group>"; };
 		380504EB2B69682D00C3E8DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		389F195C2B699B1A00FEF114 /* AccessCameraView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccessCameraView .swift"; sourceTree = "<group>"; };
+		389F195E2B6A9B0500FEF114 /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
+		389F19602B6A9D1900FEF114 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
+		389F19622B6ADDDC00FEF114 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
 		38CC909F2B6822230005D10E /* CHCheckIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHCheckIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CC90A22B6822230005D10E /* CHCheckInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHCheckInApp.swift; sourceTree = "<group>"; };
 		38CC90A42B6822230005D10E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,15 +77,18 @@
 				380504EA2B6967A600C3E8DE /* CHCheckIn.entitlements */,
 				38CC90A22B6822230005D10E /* CHCheckInApp.swift */,
 				38CC90A42B6822230005D10E /* ContentView.swift */,
+				389F195E2B6A9B0500FEF114 /* VerificationViewModel.swift */,
 				38CC90B62B693B0F0005D10E /* Event.swift */,
 				38CC90B42B6853790005D10E /* PeopleView.swift */,
 				38CC90B22B6826570005D10E /* EditPersonView.swift */,
+				389F19622B6ADDDC00FEF114 /* CheckInView.swift */,
 				38CC90B02B6823220005D10E /* Person.swift */,
 				38CC90B82B6951B20005D10E /* EditEventView.swift */,
 				38CC90BA2B6959390005D10E /* Previewer.swift */,
 				38CC90A62B6822260005D10E /* Assets.xcassets */,
 				38CC90A82B6822260005D10E /* Preview Content */,
 				389F195C2B699B1A00FEF114 /* AccessCameraView .swift */,
+				389F19602B6A9D1900FEF114 /* VerificationView.swift */,
 			);
 			path = CHCheckIn;
 			sourceTree = "<group>";
@@ -165,10 +174,13 @@
 				38CC90B12B6823220005D10E /* Person.swift in Sources */,
 				38CC90B52B6853790005D10E /* PeopleView.swift in Sources */,
 				38CC90A52B6822230005D10E /* ContentView.swift in Sources */,
+				389F195F2B6A9B0500FEF114 /* VerificationViewModel.swift in Sources */,
 				38CC90BB2B6959390005D10E /* Previewer.swift in Sources */,
 				38CC90A32B6822230005D10E /* CHCheckInApp.swift in Sources */,
 				38CC90B72B693B0F0005D10E /* Event.swift in Sources */,
 				38CC90B32B6826570005D10E /* EditPersonView.swift in Sources */,
+				389F19632B6ADDDC00FEF114 /* CheckInView.swift in Sources */,
+				389F19612B6A9D1900FEF114 /* VerificationView.swift in Sources */,
 				38CC90B92B6951B30005D10E /* EditEventView.swift in Sources */,
 				389F195D2B699B1A00FEF114 /* AccessCameraView .swift in Sources */,
 			);

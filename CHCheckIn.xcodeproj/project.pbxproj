@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		389222822B7294BA00E04361 /* VisitLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389222812B7294BA00E04361 /* VisitLogView.swift */; };
+		389222842B733E3A00E04361 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 389222832B733E3A00E04361 /* Launch Screen.storyboard */; };
+		389222872B73469C00E04361 /* UserIDTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389222862B73469C00E04361 /* UserIDTextFieldView.swift */; };
+		389222892B73494600E04361 /* CodeTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389222882B73494600E04361 /* CodeTextFieldView.swift */; };
+		3892228B2B734B7800E04361 /* VerificationFailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892228A2B734B7800E04361 /* VerificationFailedView.swift */; };
 		389F195D2B699B1A00FEF114 /* AccessCameraView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F195C2B699B1A00FEF114 /* AccessCameraView .swift */; };
 		389F195F2B6A9B0500FEF114 /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F195E2B6A9B0500FEF114 /* VerificationViewModel.swift */; };
 		389F19612B6A9D1900FEF114 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F19602B6A9D1900FEF114 /* VerificationView.swift */; };
@@ -26,6 +31,11 @@
 /* Begin PBXFileReference section */
 		380504EA2B6967A600C3E8DE /* CHCheckIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CHCheckIn.entitlements; sourceTree = "<group>"; };
 		380504EB2B69682D00C3E8DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		389222812B7294BA00E04361 /* VisitLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitLogView.swift; sourceTree = "<group>"; };
+		389222832B733E3A00E04361 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		389222862B73469C00E04361 /* UserIDTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIDTextFieldView.swift; sourceTree = "<group>"; };
+		389222882B73494600E04361 /* CodeTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextFieldView.swift; sourceTree = "<group>"; };
+		3892228A2B734B7800E04361 /* VerificationFailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationFailedView.swift; sourceTree = "<group>"; };
 		389F195C2B699B1A00FEF114 /* AccessCameraView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccessCameraView .swift"; sourceTree = "<group>"; };
 		389F195E2B6A9B0500FEF114 /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
 		389F19602B6A9D1900FEF114 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
@@ -54,6 +64,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		389222852B73465F00E04361 /* AdminViews */ = {
+			isa = PBXGroup;
+			children = (
+				389F19602B6A9D1900FEF114 /* VerificationView.swift */,
+				389F195E2B6A9B0500FEF114 /* VerificationViewModel.swift */,
+				389222862B73469C00E04361 /* UserIDTextFieldView.swift */,
+				389222882B73494600E04361 /* CodeTextFieldView.swift */,
+				3892228A2B734B7800E04361 /* VerificationFailedView.swift */,
+			);
+			path = AdminViews;
+			sourceTree = "<group>";
+		};
 		38CC90962B6822230005D10E = {
 			isa = PBXGroup;
 			children = (
@@ -77,7 +99,6 @@
 				380504EA2B6967A600C3E8DE /* CHCheckIn.entitlements */,
 				38CC90A22B6822230005D10E /* CHCheckInApp.swift */,
 				38CC90A42B6822230005D10E /* ContentView.swift */,
-				389F195E2B6A9B0500FEF114 /* VerificationViewModel.swift */,
 				38CC90B62B693B0F0005D10E /* Event.swift */,
 				38CC90B42B6853790005D10E /* PeopleView.swift */,
 				38CC90B22B6826570005D10E /* EditPersonView.swift */,
@@ -88,7 +109,9 @@
 				38CC90A62B6822260005D10E /* Assets.xcassets */,
 				38CC90A82B6822260005D10E /* Preview Content */,
 				389F195C2B699B1A00FEF114 /* AccessCameraView .swift */,
-				389F19602B6A9D1900FEF114 /* VerificationView.swift */,
+				389222852B73465F00E04361 /* AdminViews */,
+				389222812B7294BA00E04361 /* VisitLogView.swift */,
+				389222832B733E3A00E04361 /* Launch Screen.storyboard */,
 			);
 			path = CHCheckIn;
 			sourceTree = "<group>";
@@ -159,6 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				389222842B733E3A00E04361 /* Launch Screen.storyboard in Resources */,
 				38CC90AA2B6822260005D10E /* Preview Assets.xcassets in Resources */,
 				38CC90A72B6822260005D10E /* Assets.xcassets in Resources */,
 			);
@@ -177,12 +201,16 @@
 				389F195F2B6A9B0500FEF114 /* VerificationViewModel.swift in Sources */,
 				38CC90BB2B6959390005D10E /* Previewer.swift in Sources */,
 				38CC90A32B6822230005D10E /* CHCheckInApp.swift in Sources */,
+				389222892B73494600E04361 /* CodeTextFieldView.swift in Sources */,
 				38CC90B72B693B0F0005D10E /* Event.swift in Sources */,
 				38CC90B32B6826570005D10E /* EditPersonView.swift in Sources */,
 				389F19632B6ADDDC00FEF114 /* CheckInView.swift in Sources */,
+				3892228B2B734B7800E04361 /* VerificationFailedView.swift in Sources */,
 				389F19612B6A9D1900FEF114 /* VerificationView.swift in Sources */,
+				389222872B73469C00E04361 /* UserIDTextFieldView.swift in Sources */,
 				38CC90B92B6951B30005D10E /* EditEventView.swift in Sources */,
 				389F195D2B699B1A00FEF114 /* AccessCameraView .swift in Sources */,
+				389222822B7294BA00E04361 /* VisitLogView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,9 +350,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CHCheckIn/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VISITVISE;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This App needs access to the camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -358,9 +390,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CHCheckIn/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VISITVISE;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This App needs access to the camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

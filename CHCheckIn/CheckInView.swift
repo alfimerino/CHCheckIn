@@ -20,7 +20,6 @@ enum PersonNavigation {
 
 struct CheckInView: View {
     @Environment(\.modelContext) var modelContext
-//    @Bindable var person: Person
     @Binding var navigationPath: NavigationPath
 
     @State private var name: String = ""
@@ -124,18 +123,17 @@ Confirmation of Agreement: I acknowledge that submitting this form constitutes a
 """)
                         }
                 }
+                Section(header: Text(enableSubmit ? "" : "Fill out all form data.").foregroundStyle(Color.red)) {
+                    HStack() {
+                        Spacer()
+                        Button("Submit") {
 
-                HStack(spacing: 20) {
-                    Spacer()
-                    Button("Submit") {
-
+                        }
+                        .frame(width: 600)
+                        .buttonStyle(.borderedProminent)
+                        .disabled(!enableSubmit)
+                        Spacer()
                     }
-                    .buttonStyle(.borderedProminent)
-                    .disabled(!enableSubmit)
-                    Button("Cancel") {
-
-                    }.buttonStyle(.bordered)
-                    Spacer()
                 }
             }
         }

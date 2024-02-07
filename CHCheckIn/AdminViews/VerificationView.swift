@@ -9,22 +9,26 @@ import SwiftUI
 
 struct VerificationView: View {
     @StateObject var viewModel = VerificationViewModel()
+    @FocusState private var isTextFieldFocused: Bool
     @State private var inputCode: String = ""
     @State private var userId: String = ""
-    @State private var loginSuccess: Bool?
+    @State private var loginSuccess = false
+    @State private var showError = false
 
     var body: some View {
         VStack(spacing: 20) {
-            TextField(" UserID", text: $userId)
-                .keyboardType(.alphabet)
-                .frame(height: 40)
-                .border(Color.gray, width: 2)
-                .frame(maxWidth: 300)
-            SecureField(" Code", text: $inputCode)
-                .keyboardType(.numberPad)
-                .frame(height: 40)
-                .border(Color.gray, width: 2)
-                .frame(maxWidth: 300)
+            UserIDTextFieldView(userId: $userId)
+                .focused($isTextFieldFocused)
+                .onAppear {
+                    isTextFieldFocused = true
+                }
+                .onTapGesture {
+                    showError = false
+                }
+            CodeTextFieldView(inputCode: $inputCode)
+                .onTapGesture {
+                    showError = false
+                }
 
             Button("Log in") {
                 viewModel.validateCode(for: userId.lowercased(), inputCode: Int(inputCode) ?? 0) { isValid in
@@ -36,23 +40,24 @@ struct VerificationView: View {
                         print("Invalid code")
                         // Handle invalid code
                         loginSuccess = false
+                        showError = true
                     }
                 }
             }
             .buttonStyle(.borderedProminent)
+            .navigationDestination(isPresented: $loginSuccess) {
+                VisitLogView()
+            }
             VStack {
-                if let loginSuccess, loginSuccess == true {
-                    Image(systemName: "checkmark.circle")
-                        .resizable()
-                        .frame(width: 80, height: 80)
-                } else if let loginSuccess, loginSuccess == false {
-                    Image(systemName: "x.circle")
-                        .resizable()
-                        .frame(width: 80, height: 80)
+                if showError == true {
+                    VerificationFailedView()
                 }
             }
-
         }.navigationTitle("Admin")
+            .onAppear {
+                userId = ""
+                inputCode = ""
+            }
     }
 }
 

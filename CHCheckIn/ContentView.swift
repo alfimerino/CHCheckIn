@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $path) {
             PeopleView(searchString: searchText, sortOrder: sortOrder)
-                .navigationTitle("Visitor View")
+                .navigationTitle("Visitor List")
                 .navigationDestination(for: Person.self) { person in
                     EditPersonView(person: person, navigationPath: $path, admin: false)
                         .environment(\.viewOrigin, .view1)
@@ -47,7 +47,7 @@ struct ContentView: View {
                         presentCheckIn.toggle()
                     }
 
-                    Button("Visitor Check-In", systemImage: "gearshape.fill") {
+                    Button("Visitor Check-In", systemImage: "gearshape") {
                         presentVerificationView.toggle()
                     }
                 }

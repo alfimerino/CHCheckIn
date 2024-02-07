@@ -77,11 +77,11 @@ struct EditPersonView: View {
                 Button("Add a new event", action: addEvent)
             }
 
-            Section("Notes") {
+            Section("Title") {
                 TextField("Details", text: $person.details, axis: .vertical)
             }
         }
-        .navigationTitle("Edit Person")
+        .navigationTitle("Edit Personal Information")
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(for: Event.self) { event in
             EditEventView(event: event)

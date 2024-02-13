@@ -36,6 +36,7 @@ struct CheckInView: View {
     @State private var datesCorrect = true
     @State private var showAgreementSheet = false
     @State private var enableSubmit = false
+    @State private var presentOkOnSubmit = false
 
     @Query(sort: [
         SortDescriptor(\Person.name)
@@ -47,10 +48,14 @@ struct CheckInView: View {
                 Section(header: Text("Visitor Information"), footer: Text("Don't see your name on the list? Tap Add Visitor to create an account.")) {
                     if people.isEmpty == false {
                         Picker("Select Visitor", selection: $selectedPerson) {
+                            Text("None").tag(Optional<Person>.none)
                             ForEach(people) { person in
                                 Text(person.name).tag(Optional(person))
                             }
                         }.onAppear {
+                            reviewAllFields()
+                        }
+                        .onChange(of: selectedPerson) { oldValue, newValue in
                             reviewAllFields()
                         }
                     }
@@ -105,30 +110,17 @@ struct CheckInView: View {
                 }
 
                 Section(header: Text("Agreement"), footer: Text("Tap to view full Terms and Conditions")) {
-                    Text("By submitting this form, you acknowledge and agree to comply with our Terms and Conditions and Privacy Policy.")
-                        .foregroundStyle(.secondary)
-                        .onTapGesture {
-                            showAgreementSheet = true
-                        }.sheet(isPresented: $showAgreementSheet) {
-                            Text("""
-Agreement to Terms and Conditions
-
-By submitting this form, I hereby acknowledge and agree to the following terms and conditions:
-
-Accuracy of Information: All the information I have provided in this form is accurate, complete, and truthful to the best of my knowledge.
-Updates and Changes: I understand that it is my responsibility to update any information provided in this form should it change in the future.
-Data Use and Privacy: I consent to the collection, use, and disclosure of the personal information provided in this form as outlined in the Privacy Policy (link to your privacy policy).
-Policy and Regulation Compliance: I agree to comply with all relevant policies and regulations that are associated with the submission of this form and the related services or products.
-Confirmation of Agreement: I acknowledge that submitting this form constitutes a legal agreement and that I am bound by the terms and conditions herein.
-""")
-                        }
+                    TermsAndConditionsView(showAgreementSheet: $showAgreementSheet)
                 }
                 Section(header: Text(enableSubmit ? "" : "Fill out all form data.").foregroundStyle(Color.red)) {
                     HStack() {
                         Spacer()
                         Button("Submit") {
-
+                            presentOkOnSubmit = true
                         }
+                        .fullScreenCover(isPresented: $presentOkOnSubmit, content: {
+                            ModalView()
+                        })
                         .frame(width: 600)
                         .buttonStyle(.borderedProminent)
                         .disabled(!enableSubmit)
@@ -147,6 +139,12 @@ Confirmation of Agreement: I acknowledge that submitting this form constitutes a
     }
 
     func reviewAllFields() {
+
+        if selectedPerson == nil {
+            enableSubmit = false
+            return
+        }
+
         if people.isEmpty {
             enableSubmit = false
             return
@@ -170,6 +168,28 @@ Confirmation of Agreement: I acknowledge that submitting this form constitutes a
         }
 
         enableSubmit = true
+    }
+}
+
+struct ModalView: View {
+    @Environment(\.presentationMode) var presentationMode
+
+    var body: some View {
+        ZStack {
+            Color.white.edgesIgnoringSafeArea(.all)
+            VStack {
+                Text("Your Visit was Recorded Successfully")
+                    .foregroundColor(.white)
+                    .font(.largeTitle)
+                Button("Dismiss") {
+                    presentationMode.wrappedValue.dismiss()
+                }
+                .foregroundColor(.white)
+                .padding()
+                .background(Color.green)
+                .cornerRadius(10)
+            }
+        }
     }
 }
 

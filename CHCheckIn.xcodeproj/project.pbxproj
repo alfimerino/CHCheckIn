@@ -12,6 +12,7 @@
 		389222872B73469C00E04361 /* UserIDTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389222862B73469C00E04361 /* UserIDTextFieldView.swift */; };
 		389222892B73494600E04361 /* CodeTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389222882B73494600E04361 /* CodeTextFieldView.swift */; };
 		3892228B2B734B7800E04361 /* VerificationFailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892228A2B734B7800E04361 /* VerificationFailedView.swift */; };
+		3892228E2B7352FC00E04361 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3892228D2B7352FC00E04361 /* TermsAndConditionsView.swift */; };
 		389F195D2B699B1A00FEF114 /* AccessCameraView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F195C2B699B1A00FEF114 /* AccessCameraView .swift */; };
 		389F195F2B6A9B0500FEF114 /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F195E2B6A9B0500FEF114 /* VerificationViewModel.swift */; };
 		389F19612B6A9D1900FEF114 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F19602B6A9D1900FEF114 /* VerificationView.swift */; };
@@ -36,6 +37,7 @@
 		389222862B73469C00E04361 /* UserIDTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIDTextFieldView.swift; sourceTree = "<group>"; };
 		389222882B73494600E04361 /* CodeTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextFieldView.swift; sourceTree = "<group>"; };
 		3892228A2B734B7800E04361 /* VerificationFailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationFailedView.swift; sourceTree = "<group>"; };
+		3892228D2B7352FC00E04361 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
 		389F195C2B699B1A00FEF114 /* AccessCameraView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccessCameraView .swift"; sourceTree = "<group>"; };
 		389F195E2B6A9B0500FEF114 /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
 		389F19602B6A9D1900FEF114 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,15 @@
 			path = AdminViews;
 			sourceTree = "<group>";
 		};
+		3892228C2B7352DB00E04361 /* VisitorCheckin */ = {
+			isa = PBXGroup;
+			children = (
+				389F19622B6ADDDC00FEF114 /* CheckInView.swift */,
+				3892228D2B7352FC00E04361 /* TermsAndConditionsView.swift */,
+			);
+			path = VisitorCheckin;
+			sourceTree = "<group>";
+		};
 		38CC90962B6822230005D10E = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +113,7 @@
 				38CC90B62B693B0F0005D10E /* Event.swift */,
 				38CC90B42B6853790005D10E /* PeopleView.swift */,
 				38CC90B22B6826570005D10E /* EditPersonView.swift */,
-				389F19622B6ADDDC00FEF114 /* CheckInView.swift */,
+				3892228C2B7352DB00E04361 /* VisitorCheckin */,
 				38CC90B02B6823220005D10E /* Person.swift */,
 				38CC90B82B6951B20005D10E /* EditEventView.swift */,
 				38CC90BA2B6959390005D10E /* Previewer.swift */,
@@ -203,6 +214,7 @@
 				38CC90A32B6822230005D10E /* CHCheckInApp.swift in Sources */,
 				389222892B73494600E04361 /* CodeTextFieldView.swift in Sources */,
 				38CC90B72B693B0F0005D10E /* Event.swift in Sources */,
+				3892228E2B7352FC00E04361 /* TermsAndConditionsView.swift in Sources */,
 				38CC90B32B6826570005D10E /* EditPersonView.swift in Sources */,
 				389F19632B6ADDDC00FEF114 /* CheckInView.swift in Sources */,
 				3892228B2B734B7800E04361 /* VerificationFailedView.swift in Sources */,

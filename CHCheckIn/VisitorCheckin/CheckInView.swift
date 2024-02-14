@@ -48,7 +48,7 @@ struct CheckInView: View {
     ]) var people: [Person]
 
     var body: some View {
-        NavigationStack(path: $navigationPath) {
+        NavigationStack() {
             VStack {
                 Form {
                     Section(header: Text("Visitor Information"), footer: Text("Don't see your name on the list? Tap Add Visitor to create an account.")) {
@@ -65,10 +65,9 @@ struct CheckInView: View {
                                 reviewAllFields()
                             }
                         }
-                        Button("Add new Visitor", systemImage: "plus", action: addPerson)
-                            .navigationDestination(for: Person.self) { person in
-                                EditPersonView(person: person, navigationPath: $navigationPath, admin: true)
-                                    .environment(\.viewOrigin, .view2)
+
+                        NavigationLink(destination: EditPersonView(person: Person(name: "", emailAddress: "", details: ""), navigationPath: $navigationPath)) {
+                            Button("Add new Visitor", systemImage: "plus", action: addPerson)
                             }
                     }
 

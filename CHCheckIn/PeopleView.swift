@@ -16,7 +16,7 @@ struct PeopleView: View {
     var body: some View {
         List {
             ForEach(people) { person in
-                    NavigationLink(value: person) {
+                NavigationLink(destination: EditPersonView(person: person, navigationPath: $navigationPath)) {
                         Text(person.name)
                     }
             }

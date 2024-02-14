@@ -17,21 +17,3 @@ struct CHCheckInApp: App {
         .modelContainer(for: Person.self)
     }
 }
-
-
-struct ViewOriginKey: EnvironmentKey {
-    static let defaultValue: ViewOrigin = .default
-}
-
-extension EnvironmentValues {
-    var viewOrigin: ViewOrigin {
-        get { self[ViewOriginKey.self] }
-        set { self[ViewOriginKey.self] = newValue }
-    }
-}
-
-enum ViewOrigin {
-    case view1
-    case view2
-    case `default`
-}

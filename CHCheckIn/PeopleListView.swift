@@ -19,18 +19,7 @@ struct PeopleListView: View {
     @State private var presentEditView = false
 
     var body: some View {
-//        NavigationStack(path: $path) {
         PeopleView(navigationPath: $path, searchString: searchText, sortOrder: sortOrder)
-//            .navigationDestination(isPresented: $presentEditView, destination: {
-//                EditPersonView(person: person, navigationPath: $path, admin: false)
-//            })
-//                .navigationDestination(isPresented: $presentCheckIn,destination: {
-////                    CheckInView(navigationPath: $path)
-//                })
-//                .navigationDestination(isPresented: $presentVerificationView, destination: {
-//                    VerificationView()
-//                })
-
                 .toolbar {
                     Menu("Sort", systemImage: "arrow.up.arrow.down") {
                         Picker("Sort", selection: $sortOrder) {
@@ -41,20 +30,9 @@ struct PeopleListView: View {
                                 .tag([SortDescriptor(\Person.name, order: .reverse)])
                         }
                     }
-//                }
                 .searchable(text: $searchText)
                 .navigationTitle("Visitor List")
-//                .navigationDestination(for: Person.self) { person in
-//                    EditPersonView(person: person, navigationPath: $path, admin: false)
-////                        .environment(\.viewOrigin, .view1)
-//                }
         }
-    }
-
-    func addPerson() {
-        let person = Person(name: "", emailAddress: "", details: "")
-        modelContext.insert(person)
-        path.append(person)
     }
 }
 

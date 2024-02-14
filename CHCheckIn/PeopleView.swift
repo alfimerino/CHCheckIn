@@ -10,6 +10,8 @@ import SwiftUI
 
 struct PeopleView: View {
     @Environment(\.modelContext) var modelContext
+    @Binding var navigationPath: NavigationPath
+    @State private var showEditView = false
     @Query var people: [Person]
     var body: some View {
         List {
@@ -22,7 +24,8 @@ struct PeopleView: View {
         }
     }
 
-    init(searchString: String = "", sortOrder: [SortDescriptor<Person>] = []) {
+    init(navigationPath: Binding<NavigationPath> , searchString: String = "", sortOrder: [SortDescriptor<Person>] = []) {
+        _navigationPath = navigationPath
         _people = Query(filter: #Predicate { person in
             if searchString.isEmpty {
                 true
@@ -45,7 +48,7 @@ struct PeopleView: View {
 #Preview {
     do {
         let previewer = try Previewer()
-        return PeopleView().modelContainer(previewer.container)
+        return PeopleView(navigationPath: .constant(NavigationPath())).modelContainer(previewer.container)
     } catch {
         return Text("Failed to create preview: \(error.localizedDescription)")
     }

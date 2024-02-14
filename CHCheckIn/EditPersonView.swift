@@ -11,12 +11,12 @@ import SwiftUI
 import PhotosUI
 
 struct EditPersonView: View {
-    @Environment(\.viewOrigin) var viewOrigin
+//    @Environment(\.viewOrigin) var viewOrigin
     @Environment(\.modelContext) var modelContext
     @Bindable var person: Person
     @Binding var navigationPath: NavigationPath
     @State private var selectedItem: PhotosPickerItem?
-    var admin: Bool
+    var admin: Bool = false
 
 
     @State private var showCamera = false

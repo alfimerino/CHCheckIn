@@ -12,7 +12,7 @@ import SwiftData
 struct CHCheckInApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CheckInView()
         }
         .modelContainer(for: Person.self)
     }

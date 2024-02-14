@@ -14,7 +14,6 @@ class VisitLogViewModel: ObservableObject {
     let publicDatabase = CKContainer.default().publicCloudDatabase
 
     func fetchVisitLogs() {
-//        let predicate = NSPredicate(format: "visitorName == %@", "visitorName")
         let query = CKQuery(recordType: "VisitLog", predicate: NSPredicate(value: true))
 
         publicDatabase.perform(query, inZoneWith: nil) { [weak self] records, error in
@@ -41,4 +40,33 @@ class VisitLogViewModel: ObservableObject {
             }
         }
     }
+
+    func saveVisitLog(_ visitLog: VisitLog) {
+        let record = visitLogToCKRecord(visitLog)
+        let publicDatabase = CKContainer.default().publicCloudDatabase // Use the public database
+
+        publicDatabase.save(record) { savedRecord, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    // Handle the error
+                    print("Error saving record: \(error)")
+                } else {
+                    // Record was successfully saved
+                    print("VisitLog saved successfully!")
+                }
+            }
+        }
+    }
+
+    func visitLogToCKRecord(_ visitLog: VisitLog) -> CKRecord {
+        let recordId = CKRecord.ID(recordName: UUID().uuidString) // Create a unique ID for the record
+        let record = CKRecord(recordType: "VisitLog", recordID: recordId)
+
+        // Set the fields of the record
+        record["visitorName"] = visitLog.visitorName
+        record["visitDate"] = visitLog.visitStartDate as NSDate // CloudKit uses NSDate
+
+        return record
+    }
+
 }

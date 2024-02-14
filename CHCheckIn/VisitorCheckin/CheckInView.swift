@@ -20,7 +20,9 @@ enum PersonNavigation {
 
 struct CheckInView: View {
     @Environment(\.modelContext) var modelContext
-    @Binding var navigationPath: NavigationPath
+    @StateObject var viewModel = VisitLogViewModel()
+
+    @State private var navigationPath = NavigationPath()
 
     @State private var name: String = ""
     @State private var phoneNumber: String = ""
@@ -37,100 +39,126 @@ struct CheckInView: View {
     @State private var showAgreementSheet = false
     @State private var enableSubmit = false
     @State private var presentOkOnSubmit = false
+    @State private var presentVerificationView = false
+    @State private var presentUserListView = false
+    @State private var personToVisit: String = ""
 
     @Query(sort: [
         SortDescriptor(\Person.name)
     ]) var people: [Person]
 
     var body: some View {
-        VStack {
-            Form {
-                Section(header: Text("Visitor Information"), footer: Text("Don't see your name on the list? Tap Add Visitor to create an account.")) {
-                    if people.isEmpty == false {
-                        Picker("Select Visitor", selection: $selectedPerson) {
-                            Text("None").tag(Optional<Person>.none)
-                            ForEach(people) { person in
-                                Text(person.name).tag(Optional(person))
-                            }
-                        }.onAppear {
-                            reviewAllFields()
-                            addVisitLog()
-                        }
-                        .onChange(of: selectedPerson) { oldValue, newValue in
-                            reviewAllFields()
-                        }
-                    }
-                    Button("Add new Visitor", systemImage: "plus", action: addPerson)
-                        .navigationDestination(for: Person.self) { person in
-                            EditPersonView(person: person, navigationPath: $navigationPath, admin: true)
-                                .environment(\.viewOrigin, .view2)
-                    }
-                }
-
-                Section("Visit Type") {
-                    Picker("Select Visit Type", selection: $visitType) {
-                        Text(VisitType.inHouse.rawValue).tag(VisitType.inHouse)
-                        Text(VisitType.outBound.rawValue).tag(VisitType.outBound)
-                    }
-                    if visitType == .outBound {
-                        TextField("Location", text: $visitLocation)
-                            .onAppear {
-                                enableSubmit = false
-                            }
-                            .onDisappear {
+        NavigationStack(path: $navigationPath) {
+            VStack {
+                Form {
+                    Section(header: Text("Visitor Information"), footer: Text("Don't see your name on the list? Tap Add Visitor to create an account.")) {
+                        if people.isEmpty == false {
+                            Picker("Select Visitor", selection: $selectedPerson) {
+                                Text("None").tag(Optional<Person>.none)
+                                ForEach(people) { person in
+                                    Text(person.name).tag(Optional(person))
+                                }
+                            }.onAppear {
                                 reviewAllFields()
                             }
-                            .onChange(of: visitLocation) {
+                            .onChange(of: selectedPerson) { oldValue, newValue in
+                                reviewAllFields()
+                            }
+                        }
+                        Button("Add new Visitor", systemImage: "plus", action: addPerson)
+                            .navigationDestination(for: Person.self) { person in
+                                EditPersonView(person: person, navigationPath: $navigationPath, admin: true)
+                                    .environment(\.viewOrigin, .view2)
+                            }
+                    }
+
+                    Section(header: Text("Person to Visit")) {
+                        TextField("First name, Last Initial", text: $personToVisit)
+                            .onChange(of: personToVisit) { oldValue, newValue in
                                 reviewAllFields()
                             }
                     }
-                }
 
-                Section(header: Text("Visit Date & Duration"), footer: Text(datesCorrect ? "" : "Incorrect Dates").foregroundStyle(Color.red).bold()) {
-                    DatePicker("Visit Start:", selection: $visitStartDate).onChange(of: visitStartDate) {
-                        if visitEndDate <= visitStartDate {
-                            datesCorrect = false
-                        } else {
-                            datesCorrect = true
+                    Section("Visit Type") {
+                        Picker("Select Visit Type", selection: $visitType) {
+                            Text(VisitType.inHouse.rawValue).tag(VisitType.inHouse)
+                            Text(VisitType.outBound.rawValue).tag(VisitType.outBound)
+                        }
+                        if visitType == .outBound {
+                            TextField("Location", text: $visitLocation)
+                                .onAppear {
+                                    enableSubmit = false
+                                }
+                                .onDisappear {
+                                    reviewAllFields()
+                                }
+                                .onChange(of: visitLocation) {
+                                    reviewAllFields()
+                                }
                         }
                     }
-                    DatePicker("Visit End:", selection: $visitEndDate).onChange(of: visitEndDate) { oldValue, newValue in
-                        if visitEndDate <= visitStartDate {
-                            datesCorrect = false
-                        } else {
-                            datesCorrect = true
+
+                    Section(header: Text("Visit Date & Duration"), footer: Text(datesCorrect ? "" : "Incorrect Dates").foregroundStyle(Color.red).bold()) {
+                        DatePicker("Visit Start:", selection: $visitStartDate).onChange(of: visitStartDate) {
+                            if visitEndDate <= visitStartDate {
+                                datesCorrect = false
+                            } else {
+                                datesCorrect = true
+                            }
+                        }
+                        DatePicker("Visit End:", selection: $visitEndDate).onChange(of: visitEndDate) { oldValue, newValue in
+                            if visitEndDate <= visitStartDate {
+                                datesCorrect = false
+                            } else {
+                                datesCorrect = true
+                            }
                         }
                     }
-                }
 
-                Section("Reason for Visit") {
-                    TextField("Provide a brief description of your visit.", text: $reasonForVisit, axis: .vertical)
-                        .onChange(of: reasonForVisit) {
-                            reviewAllFields()
+                    Section("Reason for Visit") {
+                        TextField("Provide a brief description of your visit.", text: $reasonForVisit, axis: .vertical)
+                            .onChange(of: reasonForVisit) {
+                                reviewAllFields()
+                            }
                     }
-                }
 
-                Section(header: Text("Agreement"), footer: Text("Tap to view full Terms and Conditions")) {
-                    TermsAndConditionsView(showAgreementSheet: $showAgreementSheet)
-                }
-                Section(header: Text(enableSubmit ? "" : "Fill out all form data.").foregroundStyle(Color.red)) {
-                    HStack() {
-                        Spacer()
-                        Button("Submit") {
-                            presentOkOnSubmit = true
+                    Section(header: Text("Agreement"), footer: Text("Tap to view full Terms and Conditions")) {
+                        TermsAndConditionsView(showAgreementSheet: $showAgreementSheet)
+                    }
+                    Section(header: Text(enableSubmit ? "" : "Fill out all form data.").foregroundStyle(Color.red)) {
+                        HStack() {
+                            Spacer()
+                            Button("Submit") {
+                                presentOkOnSubmit = true
+                                let createdVisitLog = addVisitLog()
+                                viewModel.saveVisitLog(createdVisitLog)
+                            }
+                            .fullScreenCover(isPresented: $presentOkOnSubmit, content: {
+                                ModalView()
+                            })
+                            .frame(width: 600)
+                            .buttonStyle(.borderedProminent)
+                            .disabled(!enableSubmit)
+                            Spacer()
                         }
-                        .fullScreenCover(isPresented: $presentOkOnSubmit, content: {
-                            ModalView()
-                        })
-                        .frame(width: 600)
-                        .buttonStyle(.borderedProminent)
-                        .disabled(!enableSubmit)
-                        Spacer()
                     }
                 }
             }
+            .navigationTitle("Visitor Check-In")
+            .toolbar {
+                Button("User List", systemImage: "person.2") {
+                    presentUserListView.toggle()
+                }
+                Button("Visitor Check-In", systemImage: "gearshape") {
+                    presentVerificationView.toggle()
+                }
+            }.navigationDestination(isPresented: $presentUserListView) {
+                PeopleListView(path: $navigationPath)
+            }
+            .navigationDestination(isPresented: $presentVerificationView) {
+                VerificationView()
+            }
         }
-        .navigationTitle("Visitor Check-In")
     }
 
     func addPerson() {
@@ -147,6 +175,11 @@ struct CheckInView: View {
         }
 
         if people.isEmpty {
+            enableSubmit = false
+            return
+        }
+
+        if personToVisit.isEmpty {
             enableSubmit = false
             return
         }
@@ -171,8 +204,9 @@ struct CheckInView: View {
         enableSubmit = true
     }
 
-    func addVisitLog() {
-        
+    func addVisitLog() -> VisitLog {
+        return VisitLog(
+            id: NSUUID().uuidString, personVisitingName: name, reasonForVisit: reasonForVisit, visitEndDate: visitEndDate, visitLocation: visitLocation, visitStartDate: visitStartDate, visitType: visitType.rawValue, visitorName: personToVisit)
     }
 }
 
@@ -201,7 +235,7 @@ struct ModalView: View {
 #Preview {
     do {
         let previewer = try Previewer()
-        return CheckInView(navigationPath: .constant(NavigationPath())).modelContainer(previewer.container)
+        return CheckInView().modelContainer(previewer.container)
     } catch {
         return Text("Failed to create preview: \(error.localizedDescription)")
     }

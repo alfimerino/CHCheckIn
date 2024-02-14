@@ -19,6 +19,7 @@
 		389F19632B6ADDDC00FEF114 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389F19622B6ADDDC00FEF114 /* CheckInView.swift */; };
 		38C72C842B7C089C007E13E7 /* VisitLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C72C832B7C089C007E13E7 /* VisitLogViewModel.swift */; };
 		38C72C862B7C17ED007E13E7 /* VisitLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C72C852B7C17ED007E13E7 /* VisitLog.swift */; };
+		38C72C882B7D026F007E13E7 /* PeopleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C72C872B7D026F007E13E7 /* PeopleListView.swift */; };
 		38CC90A32B6822230005D10E /* CHCheckInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC90A22B6822230005D10E /* CHCheckInApp.swift */; };
 		38CC90A52B6822230005D10E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC90A42B6822230005D10E /* ContentView.swift */; };
 		38CC90A72B6822260005D10E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38CC90A62B6822260005D10E /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		389F19622B6ADDDC00FEF114 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
 		38C72C832B7C089C007E13E7 /* VisitLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitLogViewModel.swift; sourceTree = "<group>"; };
 		38C72C852B7C17ED007E13E7 /* VisitLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitLog.swift; sourceTree = "<group>"; };
+		38C72C872B7D026F007E13E7 /* PeopleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListView.swift; sourceTree = "<group>"; };
 		38CC909F2B6822230005D10E /* CHCheckIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHCheckIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CC90A22B6822230005D10E /* CHCheckInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHCheckInApp.swift; sourceTree = "<group>"; };
 		38CC90A42B6822230005D10E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				380504EB2B69682D00C3E8DE /* Info.plist */,
 				380504EA2B6967A600C3E8DE /* CHCheckIn.entitlements */,
 				38CC90A22B6822230005D10E /* CHCheckInApp.swift */,
+				38C72C872B7D026F007E13E7 /* PeopleListView.swift */,
 				38CC90A42B6822230005D10E /* ContentView.swift */,
 				38CC90B62B693B0F0005D10E /* Event.swift */,
 				38CC90B42B6853790005D10E /* PeopleView.swift */,
@@ -219,6 +222,7 @@
 				38C72C862B7C17ED007E13E7 /* VisitLog.swift in Sources */,
 				38CC90BB2B6959390005D10E /* Previewer.swift in Sources */,
 				38CC90A32B6822230005D10E /* CHCheckInApp.swift in Sources */,
+				38C72C882B7D026F007E13E7 /* PeopleListView.swift in Sources */,
 				389222892B73494600E04361 /* CodeTextFieldView.swift in Sources */,
 				38CC90B72B693B0F0005D10E /* Event.swift in Sources */,
 				3892228E2B7352FC00E04361 /* TermsAndConditionsView.swift in Sources */,

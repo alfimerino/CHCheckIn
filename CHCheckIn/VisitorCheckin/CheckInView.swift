@@ -54,6 +54,7 @@ struct CheckInView: View {
                             }
                         }.onAppear {
                             reviewAllFields()
+                            addVisitLog()
                         }
                         .onChange(of: selectedPerson) { oldValue, newValue in
                             reviewAllFields()
@@ -168,6 +169,10 @@ struct CheckInView: View {
         }
 
         enableSubmit = true
+    }
+
+    func addVisitLog() {
+        
     }
 }
 

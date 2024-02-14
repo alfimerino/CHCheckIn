@@ -8,37 +8,40 @@
 import SwiftUI
 
 struct VisitLogView: View {
+    @StateObject var viewModel = VisitLogViewModel()
     var body: some View {
         VStack {
-            List {
-                VisitRowView()
-                VisitRowView()
-                VisitRowView()
-                VisitRowView()
+            List(viewModel.visitLogs) { log in
+                VisitRowView(log: log)
             }
             .listStyle(.inset)
                 .navigationTitle("Visit Log")
         }
+        .onAppear {
+            viewModel.fetchVisitLogs()
+            print(viewModel.visitLogs)
+            }
     }
 }
 
 struct VisitRowView: View {
     @State private var visitReasonText = "Day out at the park, and Tommy's birthday."
+    var log: VisitLog
     var body: some View {
         VStack {
             HStack {
-                Text("Visitor: Paul Thomas")
+                Text("Visitor: \(log.visitorName)")
                 Spacer()
-                Text("12/12/11 13:12")
+                Text("\(log.visitStartDate.formatted(date: .abbreviated, time: .shortened))")
             }
             HStack {
-                Text("Person Visiting: Roger M.")
+                Text("Person Visiting: \(log.personVisitingName)")
                 Spacer()
             }
             HStack(alignment: .top) {
                 Text("Visit Reason:")
                 TextField("", text: Binding(
-                    get: { self.visitReasonText},
+                    get: { self.log.reasonForVisit},
                     set: { newValue in
                         if newValue.count <= 5 {
                             self.visitReasonText = newValue

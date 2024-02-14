@@ -21,7 +21,7 @@ class VerificationViewModel: ObservableObject {
                 print(error.localizedDescription)
                 completion(false)
                 // Handle error
-            } else if let record = records?.first, let code = record["code1"] as? Int {
+            } else if let record = records?.first, let code = record["code"] as? Int {
                 // You can also check the expiration date here if you have that field
                 completion(code == inputCode)
             } else {
